@@ -1,0 +1,25 @@
+<div class="row animated fadeIn">
+  <div class="col-md-6">
+    <div style="display: block;">
+
+      <canvas baseChart
+          [datasets]="radarChartData"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+
+    </div>
+  </div>
+  <div class="col-md-6" style="margin-bottom: 10px">
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of radarChartLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of radarChartData">
+        <td *ngFor="let label of radarChartLabels; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table>
+    <button class="btn btn-primary btn-block" (click)="randomize()">Random</button>
+  </div>
+</div>

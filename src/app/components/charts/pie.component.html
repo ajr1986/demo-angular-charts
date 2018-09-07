@@ -1,0 +1,24 @@
+<div class="row animated fadeIn">
+  <div class="col-md-6">
+    <div style="display: block;">
+
+      <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  <div class="col-md-6" style="margin-bottom: 10px">
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of pieChartLabels">{{label}}</th>
+      </tr>
+      <tr>
+        <td *ngFor="let d of pieChartData">{{ d }}</td>
+      </tr>
+    </table>
+    <button class="btn btn-primary btn-block" (click)="randomize()">Random</button>
+  </div>
+</div>
